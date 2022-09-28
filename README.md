@@ -7,3 +7,4 @@
 > a way to win
 > one (and) and one (or) statement
 > one of each looping segment
+
