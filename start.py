@@ -15,7 +15,6 @@ There is a door directly in FRONT of you, a medicine cabinet on your LEFT, and a
     userInput = ''
     while userInput not in directions or userInput == 'left':
         userInput = input('> ').lower()
-        print(f'-------------DEV: {userInput}')
         if userInput == 'front':
             print("You approach the dark brown door, and grasp the brassing handle.")
             bedroom()
@@ -48,7 +47,6 @@ There is a door directly in FRONT of you, a medicine cabinet on your LEFT, and a
 
 
 main()
-print(f'-----------DEV: {head_pounding}')
 
 if __name__ == "__main__":
     main
