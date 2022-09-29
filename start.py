@@ -65,7 +65,7 @@ def bathroom():
 
 
 def bedroom():
-    directions = ['dig','west','north']
+    directions = ['dig','west','north','south']
     print("""
 You enter a space that feels like it has seen a thousand lifetimes.
 None of those lifetimes have been cleaners, though...
@@ -82,6 +82,7 @@ You can also see a door to your WEST, and you can re-enter the bathroom NORTH of
         elif userInput == 'dig':
             print("You search the room. Not finding much besides your ex's old hoodie, a fork that you do not recognize, and a pair of glasses.")
             print("You put on the glasses. It is uncertain if these are yours. Your vision remains blurry, but in a different way.")
+            print("Now that you can, somewhat, see, the painting on the SOUTH wall stands out to you.")
             global inventory
             if 'glasses' not in inventory:
                 inventory.append('glasses')
@@ -90,6 +91,15 @@ You can also see a door to your WEST, and you can re-enter the bathroom NORTH of
 
         elif userInput == 'west':
             livingroom()
+
+        elif userInput == 'south':
+            print('Moving the bookshelf off the wall, a door appears.')
+            secretroom()
+
+
+def livingroom():
+    directions =  []
+
 
 
 main()
