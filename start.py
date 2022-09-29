@@ -1,10 +1,10 @@
 def main():
-    bathroom()
+    intro()
 
 head_pounding = True
 overdose = False
 
-def bathroom():
+def intro():
     directions = ['front','left','right']
     print("""You wake up in a cold semi spherical contraption. A tub. That's what it's called.
 The mostly smooth white veneer of, well, not porceline.
@@ -44,6 +44,25 @@ There is a door directly in FRONT of you, a medicine cabinet on your LEFT, and a
             pass 
 
 
+        
+def bedroom():
+    directions = ['dig','left','behind']
+    print("""
+You enter a space that feels like it has seen a thousand lifetimes.
+None of those lifetimes have been cleaners, though...
+But through the mess you can tell, at one point, this was a nice, enjoyable space.
+You can DIG through your own filth, possibly find something useful. Now that you think about it, your vision is blurrier than you remember.
+You can also see a door to your LEFT, and you can re-enter the bathroom BEHIND you.
+""")
+    userInput = ''
+    while userInput not in directions:
+        userInput = input('> ').lower()
+        if userInput == 'behind':
+            pass
+
+        if userInput == 'dig':
+            print("You search the room. Not finding much besides your ex's old hoodie, a fork that you do not recognize, and a pair of glasses.")
+            print("You put on the glasses. It is uncertain if these are yours. Your vision remains blurry, but in a different way.")
 
 
 main()
