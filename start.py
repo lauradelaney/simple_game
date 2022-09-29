@@ -3,6 +3,7 @@ def main():
 
 head_pounding = True
 overdose = False
+inventory = []
 
 def intro():
     directions = ['front','left','right']
@@ -40,11 +41,29 @@ There is a door directly in FRONT of you, a medicine cabinet on your LEFT, and a
                 global overdose
                 overdose = True
                 #alternative method, will add only options to go into the doors
-                bathroom_overdose()
+                bathroom()
             pass 
 
+def bathroom():
+    directions = ['south','west']
+    if 'glasses' in inventory:
+        print("A subtle smell of muskiness enters your nose. The chipped and broken tiles now catch your eye.")
+        print("The tub... you can barely stand to look at it.")
+        print("There is a door to the SOUTH, and a door to the WEST.")
+    elif 'glasses' not in inventory:
+        print("A subtle smell of muskiness enters your nose.")
+        print("There is a door to the SOUTH, and a door to the WEST.")
 
-        
+    userInput = ''
+    while userInput not in directions:
+        userInput = input('> ').lower()
+        if userInput == 'south':
+            bedroom()
+        if userInput == 'west':
+            livingroom()
+
+
+
 def bedroom():
     directions = ['dig','left','behind']
     print("""
