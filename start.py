@@ -4,6 +4,11 @@ def main():
 head_pounding = True
 overdose = False
 inventory = []
+room_count = 0
+
+def roomcount():
+    global room_count
+    room_count += 1
 
 def intro():
     directions = ['south','east','west']
@@ -15,16 +20,17 @@ There is a door directly in SOUTH of you, a medicine cabinet to your EAST, and a
     pill_count  = 0
     userInput = ''
     while userInput not in directions or userInput == 'east':
-        userInput = input('> ').lower()
+        userInput = input('> ').lower().strip()
         if userInput == 'south':
             print("You approach the dark brown door, and grasp the brassing handle.")
+            roomcount()
             bedroom()
         
         elif userInput == 'west':
             print("You approach the dark brown door, and grasp the brassing handle.")
+            roomcount()
             livingroom()
 
-        #need to add pills to inventory, and set up inventory system
         elif userInput == 'east':
             global head_pounding
             head_pounding = False
@@ -33,6 +39,8 @@ There is a door directly in SOUTH of you, a medicine cabinet to your EAST, and a
             print("Inside you find a bottle, simply marked with tape and sharpie, 'pain KILLERS'")
             print("Against your better judgement, you open the bottle and take two oval shaped pills.")
             pill_count +=1
+            global inventory
+            inventory.append('pills')
             
             if pill_count > 4:
                 print("You are beginning to lose your balance, as the amphetimine high takes control.")
@@ -40,7 +48,8 @@ There is a door directly in SOUTH of you, a medicine cabinet to your EAST, and a
                 print("You passout on to the floor. A warm and familiar darkness sets in.")
                 global overdose
                 overdose = True
-                #alternative method, will add only options to go into the doors
+                if 'pills' in inventory:
+                    inventory.remove('pills')
                 bathroom()
             pass 
 
@@ -56,10 +65,12 @@ def bathroom():
 
     userInput = ''
     while userInput not in directions:
-        userInput = input('> ').lower()
+        userInput = input('> ').lower().strip()
         if userInput == 'south':
+            roomcount()
             bedroom()
         if userInput == 'west':
+            roomcount()
             livingroom()
 
 
@@ -71,12 +82,13 @@ You enter a space that feels like it has seen a thousand lifetimes.
 None of those lifetimes have been cleaners, though...
 But through the mess you can tell, at one point, this was a nice, enjoyable space.
 You can DIG through your own filth, possibly find something useful. Now that you think about it, your vision is blurrier than you remember.
-You can also see a door to your WEST, and you can re-enter the bathroom NORTH of you.
+You can also see a door to your NORTH, and one WEST of you.
 """)
     userInput = ''
     while userInput not in directions or userInput == 'dig':
-        userInput = input('> ').lower()
+        userInput = input('> ').lower().strip()
         if userInput == 'north':
+            roomcount()
             bathroom()
 
         elif userInput == 'dig':
@@ -90,19 +102,46 @@ You can also see a door to your WEST, and you can re-enter the bathroom NORTH of
             continue
 
         elif userInput == 'west':
+            roomcount()
             livingroom()
 
         elif userInput == 'south':
             print('Moving the bookshelf off the wall, a door appears.')
+            roomcount()
             secretroom()
 
 
 def livingroom():
-    directions =  []
+    directions =  ['north east', 'south east', 'south', 'west']
+    print("A dark, depressing, scene unfolds in front of you.")
+    print("Garbage. You are a garbage human being.")
+    print("There is a door to your NORTH EAST, another to your SOUTH EAST, one directly SOUTH, and one to the WEST of you.")
+    userInput = ''
+    while userInput not in directions or userInput == 'south':
+        userInput = input('> ').lower().strip()
+
+        if userInput == 'north east':
+            bathroom()
+        
+        elif userInput == 'south east':
+            bedroom()
+
+        elif userInput == 'south':
+            if room_count < 3:
+                print('You grab the handle and feel a sharp pain shoot through your forehead.')
+                print('You stumble back, nearly tripping over the... is that a coffee table under all of that clutter?')
+                print('Maybe you should check more rooms you think to yourself. The outside world seems scary.')
+                continue
+            elif  room_count > 3:
+                hallway()
+            
+
+        elif userInput == 'west':
+            kitchen()
 
 
-
-main()
+livingroom()
+#main()
 
 if __name__ == "__main__":
     main
