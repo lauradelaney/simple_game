@@ -13,7 +13,7 @@ def roomcount():
 def intro():
     directions = ['south','east','west']
     print("""You wake up in a cold semi spherical contraption. A tub. That's what it's called.
-The mostly smooth white veneer of, well, not porceline.
+The mostly smooth white veneer of, well, not porceline. This is the bathroom.
 Your head is pounding as you clamber your way out of the tub with the grace of an ostrich.
 There is a door directly in SOUTH of you, a medicine cabinet to your EAST, and a nearly identical door on your WEST.""")
 
@@ -57,10 +57,10 @@ def bathroom():
     directions = ['south','west']
     if 'glasses' in inventory:
         print("A subtle smell of muskiness enters your nose. The chipped and broken tiles now catch your eye.")
-        print("The tub... you can barely stand to look at it.")
+        print("The tub... you can barely stand to look at it. This isn't the bathroom you know.")
         print("There is a door to the SOUTH, and a door to the WEST.")
     elif 'glasses' not in inventory:
-        print("A subtle smell of muskiness enters your nose.")
+        print("A subtle smell of muskiness enters your nose. The bathroom.")
         print("There is a door to the SOUTH, and a door to the WEST.")
 
     userInput = ''
@@ -79,7 +79,7 @@ def bedroom():
     directions = ['dig','west','north','south']
     print("""
 You enter a space that feels like it has seen a thousand lifetimes.
-None of those lifetimes have been cleaners, though...
+None of those lifetimes have been cleaners, though... Your bedroom.
 But through the mess you can tell, at one point, this was a nice, enjoyable space.
 You can DIG through your own filth, possibly find something useful. Now that you think about it, your vision is blurrier than you remember.
 You can also see a door to your NORTH, and one WEST of you.
@@ -113,7 +113,7 @@ You can also see a door to your NORTH, and one WEST of you.
 
 def livingroom():
     directions =  ['north east', 'south east', 'south', 'west']
-    print("A dark, depressing, scene unfolds in front of you.")
+    print("A dark, depressing, scene unfolds in front of you. This is the 'living' room.")
     print("Garbage. You are a garbage human being.")
     print("There is a door to your NORTH EAST, another to your SOUTH EAST, one directly SOUTH, and one to the WEST of you.")
     userInput = ''
@@ -143,7 +143,16 @@ def livingroom():
             kitchen()
 
 
+
+def kitchen():
+    directions = []
+    print("You enter a room with outdated cabinets and an overflowing sink. The kitchen.")
+
+
+
+
+
 #main()
 
-if __name__ == "__main__":
-    main
+#if __name__ == "__main__":
+ #   main()
