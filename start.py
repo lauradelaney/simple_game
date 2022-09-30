@@ -92,13 +92,15 @@ You can also see a door to your NORTH, and one WEST of you.
             bathroom()
 
         elif userInput == 'dig':
-            print("You search the room. Not finding much besides your ex's old hoodie, a fork that you do not recognize, and a pair of glasses.")
-            print("You put on the glasses. It is uncertain if these are yours. Your vision remains blurry, but in a different way.")
-            print("Now that you can, somewhat, see, the painting on the SOUTH wall stands out to you.")
             global inventory
             if 'glasses' not in inventory:
+                print("You search the room. Not finding much besides your ex's old hoodie, a fork that you do not recognize, and a pair of glasses.")
+                print("You put on the glasses. It is uncertain if these are yours. Your vision remains blurry, but in a different way.")
+                print("Now that you can, somewhat, see, the painting on the SOUTH wall stands out to you.")
                 inventory.append('glasses')
                 continue
+            else:
+                print("You don't find anything else interesting. There is a door to the NORTH and WEST, and a suspicious painting to the SOUTH.")
             continue
 
         elif userInput == 'west':
@@ -160,9 +162,10 @@ def kitchen():
                 print("You cannot believe it, keys to your apartment are sitting perfectly in the drawer.")
                 print("A tear rolls down your cheek as you pick of the familiar keychair, decorated with knick knacks.")
                 inventory.append('keys')
-            
+                continue
             else:
                 print("Nothing more comes to mind. You can EXIT to the living room.")
+                continue
 
 
 
