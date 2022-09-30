@@ -147,6 +147,22 @@ def livingroom():
 def kitchen():
     directions = []
     print("You enter a room with outdated cabinets and an overflowing sink. The kitchen.")
+    print("You can SEARCH or EXIT to the living room.")
+    userInput = ''
+    while userInput not in directions or userInput == 'search':
+        userInput = input('> ').lower().strip()
+
+        if userInput == 'search':
+            global inventory
+            if 'keys' not in inventory:
+                print("You trace your fingers along the small sections of countertop that are not covered in dishes.")
+                print("A familiarity embraces your arm. You reach for a drawer that looks the same as any other.")
+                print("You cannot believe it, keys to your apartment are sitting perfectly in the drawer.")
+                print("A tear rolls down your cheek as you pick of the familiar keychair, decorated with knick knacks.")
+                inventory.append('keys')
+            
+            else:
+                print("Nothing more comes to mind. You can EXIT to the living room.")
 
 
 
