@@ -1,23 +1,26 @@
 def main():
     intro()
 
+
 head_pounding = True
 overdose = False
 inventory = []
 room_count = 0
 
+
 def roomcount():
     global room_count
     room_count += 1
 
+
 def intro():
-    directions = ['south','east','west']
+    directions = ['south', 'east', 'west']
     print("""You wake up in a cold semi spherical contraption. A tub. That's what it's called.
 The mostly smooth white veneer of, well, not porceline. This is the bathroom.
 Your head is pounding as you clamber your way out of the tub with the grace of an ostrich.
 There is a door directly in SOUTH of you, a medicine cabinet to your EAST, and a nearly identical door on your WEST.""")
 
-    pill_count  = 0
+    pill_count = 0
     userInput = ''
     while userInput not in directions or userInput == 'east':
         userInput = input('> ').lower().strip()
@@ -25,7 +28,7 @@ There is a door directly in SOUTH of you, a medicine cabinet to your EAST, and a
             print("You approach the dark brown door, and grasp the brassing handle.")
             roomcount()
             bedroom()
-        
+
         elif userInput == 'west':
             print("You approach the dark brown door, and grasp the brassing handle.")
             roomcount()
@@ -35,26 +38,32 @@ There is a door directly in SOUTH of you, a medicine cabinet to your EAST, and a
             global head_pounding
             head_pounding = False
             print("You see a grizzy figure in the mirror. Your own reflection. It took you a minute to recognize yourself...")
-            print("Reaching past the discheveled monument of human existance, you open the cabinet.")
-            print("Inside you find a bottle, simply marked with tape and sharpie, 'pain KILLERS'")
-            print("Against your better judgement, you open the bottle and take two oval shaped pills.")
-            pill_count +=1
+            print(
+                "Reaching past the discheveled monument of human existance, you open the cabinet.")
+            print(
+                "Inside you find a bottle, simply marked with tape and sharpie, 'pain KILLERS'")
+            print(
+                "Against your better judgement, you open the bottle and take two oval shaped pills.")
+            pill_count += 1
             global inventory
             inventory.append('pills')
-            
+
             if pill_count > 4:
-                print("You are beginning to lose your balance, as the amphetimine high takes control.")
+                print(
+                    "You are beginning to lose your balance, as the amphetimine high takes control.")
             if pill_count > 6:
-                print("You passout on to the floor. A warm and familiar darkness sets in.")
+                print(
+                    "You passout on to the floor. A warm and familiar darkness sets in.")
                 global overdose
                 overdose = True
                 if 'pills' in inventory:
                     inventory.remove('pills')
                 bathroom()
-            pass 
+            pass
+
 
 def bathroom():
-    directions = ['south','west']
+    directions = ['south', 'west']
     if 'glasses' in inventory:
         print("A subtle smell of muskiness enters your nose. The chipped and broken tiles now catch your eye.")
         print("The tub... you can barely stand to look at it. This isn't the bathroom you know.")
@@ -74,9 +83,8 @@ def bathroom():
             livingroom()
 
 
-
 def bedroom():
-    directions = ['dig','west','north','south']
+    directions = ['dig', 'west', 'north', 'south']
     print("""
 You enter a space that feels like it has seen a thousand lifetimes.
 None of those lifetimes have been cleaners, though... Your bedroom.
@@ -96,7 +104,8 @@ You can also see a door to your NORTH, and one WEST of you.
             if 'glasses' not in inventory:
                 print("You search the room. Not finding much besides your ex's old hoodie, a fork that you do not recognize, and a pair of glasses.")
                 print("You put on the glasses. It is uncertain if these are yours. Your vision remains blurry, but in a different way.")
-                print("Now that you can, somewhat, see, the painting on the SOUTH wall stands out to you.")
+                print(
+                    "Now that you can, somewhat, see, the painting on the SOUTH wall stands out to you.")
                 inventory.append('glasses')
                 continue
             else:
@@ -114,7 +123,7 @@ You can also see a door to your NORTH, and one WEST of you.
 
 
 def livingroom():
-    directions =  ['north east', 'south east', 'south', 'west']
+    directions = ['north east', 'south east', 'south', 'west']
     print("A dark, depressing, scene unfolds in front of you. This is the 'living' room.")
     print("Garbage. You are a garbage human being.")
     print("There is a door to your NORTH EAST, another to your SOUTH EAST, one directly SOUTH, and one to the WEST of you.")
@@ -125,7 +134,7 @@ def livingroom():
         if userInput == 'north east':
             roomcount()
             bathroom()
-        
+
         elif userInput == 'south east':
             roomcount()
             bedroom()
@@ -134,21 +143,23 @@ def livingroom():
             if room_count > 3 and 'keys' in inventory:
                 roomcount()
                 hallway()
+
             else:
-                print('You grab the handle and feel a sharp pain shoot through your forehead.')
-                print('You stumble back, nearly tripping over the... is that a coffee table under all of that clutter?')
-                print('Maybe you should check more rooms you think to yourself. The outside world seems scary.')
+                print(
+                    'You grab the handle and feel a sharp pain shoot through your forehead.')
+                print(
+                    'You stumble back, nearly tripping over the... is that a coffee table under all of that clutter?')
+                print(
+                    'Maybe you should check more rooms you think to yourself. The outside world seems scary.')
                 continue
-                
-            
+
         elif userInput == 'west':
             roomcount()
             kitchen()
 
 
-
 def kitchen():
-    directions = ['exit','search']
+    directions = ['exit', 'search']
     print("You enter a room with outdated cabinets and an overflowing sink. The kitchen.")
     print("You can SEARCH or EXIT to the living room.")
     userInput = ''
@@ -158,10 +169,14 @@ def kitchen():
         if userInput == 'search':
             global inventory
             if 'keys' not in inventory:
-                print("You trace your fingers along the small sections of countertop that are not covered in dishes.")
-                print("A familiarity embraces your arm. You reach for a drawer that looks the same as any other.")
-                print("You cannot believe it, keys to your apartment are sitting perfectly in the drawer.")
-                print("A tear rolls down your cheek as you pick of the familiar keychair, decorated with knick knacks.")
+                print(
+                    "You trace your fingers along the small sections of countertop that are not covered in dishes.")
+                print(
+                    "A familiarity embraces your arm. You reach for a drawer that looks the same as any other.")
+                print(
+                    "You cannot believe it, keys to your apartment are sitting perfectly in the drawer.")
+                print(
+                    "A tear rolls down your cheek as you pick of the familiar keychair, decorated with knick knacks.")
                 inventory.append('keys')
                 continue
             else:
@@ -169,13 +184,10 @@ def kitchen():
                 continue
 
         elif userInput == 'exit':
-            livingroom()
+            livingroom() 
 
 
+# main()
 
-
-
-#main()
-
-#if __name__ == "__main__":
+# if __name__ == "__main__":
  #   main()
