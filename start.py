@@ -121,9 +121,11 @@ def livingroom():
         userInput = input('> ').lower().strip()
 
         if userInput == 'north east':
+            roomcount()
             bathroom()
         
         elif userInput == 'south east':
+            roomcount()
             bedroom()
 
         elif userInput == 'south':
@@ -133,14 +135,14 @@ def livingroom():
                 print('Maybe you should check more rooms you think to yourself. The outside world seems scary.')
                 continue
             elif  room_count > 3:
+                roomcount()
                 hallway()
             
-
         elif userInput == 'west':
+            roomcount()
             kitchen()
 
 
-livingroom()
 #main()
 
 if __name__ == "__main__":
