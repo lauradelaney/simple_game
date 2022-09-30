@@ -131,14 +131,15 @@ def livingroom():
             bedroom()
 
         elif userInput == 'south':
-            if room_count < 3:
+            if room_count > 3 and 'keys' in inventory:
+                roomcount()
+                hallway()
+            else:
                 print('You grab the handle and feel a sharp pain shoot through your forehead.')
                 print('You stumble back, nearly tripping over the... is that a coffee table under all of that clutter?')
                 print('Maybe you should check more rooms you think to yourself. The outside world seems scary.')
                 continue
-            elif  room_count > 3:
-                roomcount()
-                hallway()
+                
             
         elif userInput == 'west':
             roomcount()
@@ -147,7 +148,7 @@ def livingroom():
 
 
 def kitchen():
-    directions = []
+    directions = ['exit','search']
     print("You enter a room with outdated cabinets and an overflowing sink. The kitchen.")
     print("You can SEARCH or EXIT to the living room.")
     userInput = ''
@@ -166,6 +167,9 @@ def kitchen():
             else:
                 print("Nothing more comes to mind. You can EXIT to the living room.")
                 continue
+
+        elif userInput == 'exit':
+            livingroom()
 
 
 
