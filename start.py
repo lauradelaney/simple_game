@@ -187,6 +187,15 @@ def kitchen():
             livingroom() 
 
 
+def hallway():
+    print("You hear a click behind you.")
+    print("The hallway is dim, looks to be candle lit, but you can see the bulbs.")
+    print("You can see a door to the NORTH EAST, one to the SOUTH EAST, and one to the WEST.")
+    #not finished but I want to restructure this before creating more rooms to refactor.
+    
+
+
+
 # main()
 
 # if __name__ == "__main__":
