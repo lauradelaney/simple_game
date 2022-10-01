@@ -15,13 +15,13 @@ class Room():
         self.south = south
 
         if north:
-            north.self = self
+            north.south = self
         if east:
-            east.self = self
+            east.west = self
         if south:
-            south.self = self
+            south.north = self
         if west:
-            west.self = self
+            west.east = self
 
     def movement(self,direction):
         if direction in ['north','south','east','west']:
