@@ -1,10 +1,5 @@
 # simple_game
 
 
-> 10 locations
-> at least 2 items
-> inventory system (dict)
-> a way to win
-> one (and) and one (or) statement
-> one of each looping segment
-
+This version is before implimenting data structures and classes for rooms.
+I kept it just to show progress and refactoring of my code.
