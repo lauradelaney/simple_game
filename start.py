@@ -25,7 +25,6 @@ directions = ['north','south','east','west','search']
 inventory = []
 
 def game_loop():
-    #want to fix this so only the input gets repeated and not this whole section.
     while True:
         global current_room
         print(
@@ -36,9 +35,9 @@ def game_loop():
         )
         
 
-        #need to refactor this so the logic isn't so messy.
+        #TODO: refactor this so the logic isn't so messy.
         userInput =  ''
-        while userInput not in directions:
+        while userInput not in directions or userInput == 'search':
             userInput = input('> ').lower().strip()
             if userInput in directions:
                 if userInput in current_room and userInput != 'search':
@@ -53,6 +52,8 @@ def game_loop():
                     if current_room['search'] not in inventory:
                         inventory.append(current_room['search'])
                         print(f"You dig around and find {current_room['search_desc']}")
+                    else:
+                        print("Nothing else to find in current room.")
 
 
                 else:
