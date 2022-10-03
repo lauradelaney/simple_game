@@ -1,43 +1,40 @@
 def main():
-    intro()
-
-class Room():
-    name  : str
-    north : 'Room'
-    east  : 'Room'
-    south : 'Room'
-    west  : 'Room'
-
-    def __init__(self, name, north=None, east=None, south=None, west=None):
-        self.name = name
-        self.north = north
-        self.east = east
-        self.south = south
-
-        if north:
-            north.south = self
-        if east:
-            east.west = self
-        if south:
-            south.north = self
-        if west:
-            west.east = self
-
-    def movement(self,direction):
-        if direction in ['north','south','east','west']:
-            return getattr(self, direction)
-        else:
-            return None
-
-    def __str__(self):
-        return self.name
+    game_loop()
 
 
+rooms = {
+    'bathroom': {
+        'name': 'bathroom',
+        'desc': 'a room that smells truly damp',
+        'north': 'hallway',
+    }
+}
 
+current_room = rooms['bathroom']
+directions = ['north','south','east','west']
 
-class Building():
-    current_room: Room
-    rooms: list[rooms]
+def game_loop():
+    while True:
+        global current_room
+        print(
+            f"You are in {current_room['desc']}"
+        )
+        print(
+            f"This is the {current_room['name']}"
+        )
+        
+        userInput =  ''
+        while userInput not in directions:
+            userInput = input('> ').lower().strip()
+            if userInput in directions:
+                if userInput in current_room:
+                    current_room = rooms[current_room[userInput]]
+                    print(current_room)
+                    break
+                else:
+                    continue
 
-# if __name__ == "__main__":
- #   main()
+game_loop()
+
+#if __name__ == "__main__":
+#   main()
