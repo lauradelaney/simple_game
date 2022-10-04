@@ -6,14 +6,14 @@ rooms = {
     'bathroom': {
         'name': 'bathroom',
         'desc': 'a room that smells truly damp. There is a slightly ajar door to the SOUTH.',
-        'south': 'bedroom',
-        'search': 'Glasses',
-        'search_desc': 'You find a pair of glasses scattered across the floor.'        
+        'south': 'bedroom',     
     },
 
     'bedroom': {
         'name': 'bedroom',
         'desc': '',
+        'search': 'Glasses',
+        'search_desc': 'You find a pair of glasses scattered across the floor.',   
         'north': 'bathroom',
         'west': 'hallway'
     }
