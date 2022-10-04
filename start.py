@@ -28,16 +28,26 @@ rooms = {
         'search': 'Glasses',
         'search_desc': 'You find a pair of glasses scattered across the floor.',   
         'north': 'bathroom',
-        'west': 'living room'
+        'west': 'living-room'
     },
 
-    'living room': {
+    'living-room': {
         'name': 'living room',
         'desc': 'You enter a messy room with a couch and TV. There is a door to the EAST, one to the SOUTH (with a lock on it), and an open doorframe to the WEST.',
         'south': 'hallway',
         'east': 'bathroom',
         'west': 'kitchen',
     },
+
+    'hallway': {
+        'name': 'hallway',
+        'desc': 'You enter a narrow hallway',
+        'north': 'living room',
+        'south': 'narrow-hallway',
+        'east': 'locked-room',
+        'west': 'large-room',
+    },
+
 
 }
 
