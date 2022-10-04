@@ -3,6 +3,19 @@ def main():
 
 
 rooms = {
+
+
+    # 'template': {
+    #     'name': '',
+    #     'desc': '',
+    #     'north': '',
+    #     'south': '',
+    #     'east': '',
+    #     'west': '',
+    #     'search': '',
+    #     'search_desc': '',
+    # },
+
     'bathroom': {
         'name': 'bathroom',
         'desc': 'a room that smells truly damp. There is a slightly ajar door to the SOUTH.',
@@ -11,12 +24,20 @@ rooms = {
 
     'bedroom': {
         'name': 'bedroom',
-        'desc': '',
+        'desc': 'You enter a space that seems to have lived a thousand lives. None of them have been cleaners though... There is a door NORTH, and one WEST.',
         'search': 'Glasses',
         'search_desc': 'You find a pair of glasses scattered across the floor.',   
         'north': 'bathroom',
-        'west': 'hallway'
-    }
+        'west': 'living room'
+    },
+
+    'living room': {
+        'name': 'living room',
+        'desc': 'You enter a messy room with a couch and TV. There is a door to the EAST, one to the SOUTH (with a lock on it), and an open doorframe to the WEST.',
+        'south': 'hallway',
+        'east': 'bathroom',
+        'west': 'kitchen',
+    },
 
 }
 
